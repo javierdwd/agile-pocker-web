@@ -1,5 +1,8 @@
 import Vue from "vue";
 
+// Global styles.
+import "./assets/styles/main.scss";
+
 // Vue components.
 import App from "./App.vue";
 import LayoutDefault from "./layouts/LayoutDefault";

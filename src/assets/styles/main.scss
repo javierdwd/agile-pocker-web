@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap');
+
+
+:root {
+  --brand-color: #FF4F4F;
+  --black: #2C3E50;
+
+  font-size: 62.5%;
+  outline-color: var(--brand-color);
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  outline-color: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color: var(--black);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+}
