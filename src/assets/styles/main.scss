@@ -27,3 +27,34 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.6rem;
 }
+
+
+// Container
+.l-container {
+  padding: 0 1.5rem;
+  margin: 0 auto;
+}
+
+
+// Link
+a:not(.not-hover-effect) {
+  position: relative;
+  
+  &::after {
+    background-color: var(--brand-color);
+    content: "";
+    height: .2em;
+    left: 0;
+    position: absolute;
+    top: calc(50% + 1em);
+    transform: translateY(-.1em);
+    transition: width .6s ease;
+    width: 0;
+  }
+  &.router-link-exact-active::after {
+    width: 40%;
+  }
+  &:hover::after {
+    width: 90%;
+  }
+}

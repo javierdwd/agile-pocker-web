@@ -1,6 +1,6 @@
 <template>
   <LayoutDefault>
-    <div class="vw-home">
+    <div class="vw-cards">
       <img alt="Vue logo" src="@/assets/logo.png" />
       <HelloWorld msg="Welcome to Your Vue.js App" />
     </div>
@@ -11,7 +11,7 @@
 import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
-  name: "home",
+  name: "cards",
   components: {
     HelloWorld
   }
