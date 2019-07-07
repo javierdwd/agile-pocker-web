@@ -7,22 +7,27 @@
       @choose="onChoose"
       >{{ card.label }}</Card
     >
+
+    <ChosenCard :card="chosenCard" @choose="onChoose" />
   </section>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters, mapMutations, mapState } from "vuex";
 import { CHOSEN_CARD } from "../../store/modules/cardsBoardStore/mutation-types";
 
 import Card from "../Card";
+import ChosenCard from "../ChosenCard";
 
 export default {
   name: "CardsBoard",
   components: {
-    Card
+    Card,
+    ChosenCard
   },
   computed: {
-    ...mapGetters("cardsBoard", ["cards"])
+    ...mapGetters("cardsBoard", ["cards"]),
+    ...mapState("cardsBoard", ["chosenCard"])
   },
   methods: {
     ...mapMutations("cardsBoard", [CHOSEN_CARD]),

@@ -4,6 +4,7 @@
 :root {
   --brand-color: #FF4F4F;
   --black: #2C3E50;
+  --black-shadow: #232323;
 
   font-size: 62.5%;
   outline-color: var(--brand-color);
@@ -39,7 +40,7 @@ body {
 // Link
 a:not(.not-hover-effect) {
   position: relative;
-  
+
   &::after {
     background-color: var(--brand-color);
     content: "";
