@@ -1,19 +1,22 @@
 <template>
   <LayoutDefault>
     <div class="vw-cards">
-      <img alt="Vue logo" src="@/assets/logo.png" />
-      <HelloWorld msg="Welcome to Your Vue.js App" />
+      <CardsBoard>
+        <Card v-for="cardNum in 12" :key="cardNum"> Card {{ cardNum }} </Card>
+      </CardsBoard>
     </div>
   </LayoutDefault>
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
+import CardsBoard from "@/components/CardsBoard";
+import Card from "@/components/Card";
 
 export default {
   name: "cards",
   components: {
-    HelloWorld
+    CardsBoard,
+    Card
   }
 };
 </script>
