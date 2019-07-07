@@ -21,7 +21,6 @@ export default {
 
 <style lang="scss" scoped>
 .c-Nav {
-
   &__menu {
     display: flex;
     list-style: none;
