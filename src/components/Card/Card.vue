@@ -1,5 +1,5 @@
 <template>
-  <div class="c-Card">
+  <div class="c-Card" @click="onClick">
     <div class="c-Card__content">
       <slot />
     </div>
@@ -8,7 +8,20 @@
 
 <script>
 export default {
-  name: "Card"
+  name: "Card",
+  props: {
+    card: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    onClick() {
+      this.$emit("choose", {
+        ...this.card
+      });
+    }
+  }
 };
 </script>
 
