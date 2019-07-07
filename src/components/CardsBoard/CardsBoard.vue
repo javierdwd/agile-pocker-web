@@ -14,7 +14,7 @@
 import { mapGetters, mapMutations } from "vuex";
 import { CHOSEN_CARD } from "../../store/modules/cardsBoardStore/mutation-types";
 
-import Card from "@/components/Card";
+import Card from "../Card";
 
 export default {
   name: "CardsBoard",

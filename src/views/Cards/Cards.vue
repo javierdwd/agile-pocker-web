@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import CardsBoard from "@/components/CardsBoard";
+import CardsBoard from "../../components/CardsBoard";
 
 export default {
   name: "cards",
