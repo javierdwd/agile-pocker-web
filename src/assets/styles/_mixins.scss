@@ -1,0 +1,11 @@
+@import './vars';
+
+$mq-breakpoints: (
+  small: $layoutBreakpoint-Small,
+  medium: $layoutBreakpoint-Medium,
+  large: $layoutBreakpoint-Large,
+  extraLarge: $layoutBreakpoint-ExtraLarge,
+  wide: $layoutBreakpoint-Wide
+);
+
+@import '../../../node_modules/sass-mq/mq';
