@@ -1,3 +1,5 @@
+import { CHOSEN_CARD } from "./mutation-types";
+
 const state = {
   activeBoard: "standard",
   boards: [
@@ -21,10 +23,15 @@ const state = {
         { value: "coffee", label: "☕" }
       ]
     }
-  ]
+  ],
+  chosenCard: null
 };
 
-const mutations = {};
+const mutations = {
+  [CHOSEN_CARD](state, payload) {
+    state.chosenCard = payload;
+  }
+};
 
 const actions = {};
 
