@@ -9,7 +9,7 @@ import { mapActions } from "vuex";
 
 import {
   CREATE_USER,
-  LOAD_USER,
+  LOAD_USER
 } from "./store/modules/settingsStore/mutation-types";
 
 export default {
@@ -21,7 +21,7 @@ export default {
     let userId = localStorage.getItem("userId");
 
     try {
-      if(!userId) {
+      if (!userId) {
         userId = await this[CREATE_USER]();
         localStorage.setItem("userId", userId);
 
@@ -33,6 +33,5 @@ export default {
       console.error(error);
     }
   }
-}
+};
 </script>
-

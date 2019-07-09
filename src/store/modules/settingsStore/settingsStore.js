@@ -10,7 +10,7 @@ import {
 const state = {
   user: {
     id: "",
-    name: "Javi",
+    name: "",
     createdAt: ""
   }
 };
@@ -27,32 +27,40 @@ const mutations = {
 };
 
 const actions = {
-  [CHANGE_USERNAME]({ commit }, payload) {
-    commit(CHANGE_USERNAME, payload);
-  },
-  async [CREATE_USER]() {
-    return (
-      await db.collection("users")
-              .add({
-              createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-              name: ""
-            })
-    ).id
-  },
-  async [LOAD_USER]({ commit }, payload) {
-    const userRef = await db.collection("users").doc(payload).get();
+  async [CHANGE_USERNAME]({ commit, state }, payload) {
+    try {
+      const userRef = db.collection("users").doc(state.user.id);
 
-    if(!userRef.exists) {
-      throw new Error("User doesn't exist");
+      await userRef.update({
+        name: payload
+      });
+
+      commit(CHANGE_USERNAME, payload);
+    } catch (error) {
+      console.error(error);
     }
+  },
 
-    const data = userRef.data();
+  async [CREATE_USER]() {
+    return (await db.collection("users").add({
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      name: ""
+    })).id;
+  },
 
-    commit(SET_USER, {
-      id: payload,
-      createdAt: data.createdAt.toDate(),
-      name: data.name,
-    });
+  async [LOAD_USER]({ commit }, payload) {
+    try {
+      const userRef = db.collection("users").doc(payload);
+      const userData = (await userRef.get()).data();
+
+      commit(SET_USER, {
+        id: payload,
+        createdAt: userData.createdAt.toDate(),
+        name: userData.name
+      });
+    } catch (error) {
+      console.error("User doesn't exist");
+    }
   }
 };
 

@@ -22,12 +22,17 @@ import { CHANGE_USERNAME } from "../../store/modules/settingsStore/mutation-type
 
 export default {
   name: "Settings",
+  timeout: null,
   computed: {
     ...mapState("settings", ["user"]),
 
     username: {
       set(username) {
-        this[CHANGE_USERNAME](username);
+        clearTimeout(this.$options.timeout);
+
+        this.$options.timeout = setTimeout(() => {
+          this[CHANGE_USERNAME](username);
+        }, 1000);
       },
       get() {
         return this.user.name;
