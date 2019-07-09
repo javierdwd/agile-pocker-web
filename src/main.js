@@ -1,6 +1,7 @@
 import Vue from "vue";
 
 // Global styles.
+import "./assets/styles/external.scss";
 import "./assets/styles/main.scss";
 
 // Vue components.
